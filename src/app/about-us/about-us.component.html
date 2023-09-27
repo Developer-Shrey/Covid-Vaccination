@@ -1,0 +1,125 @@
+<div class="container-fluid container-color  ">
+
+  <h1 class="text-center " style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: rgb(244, 141, 244);">Covid Vacciation </h1>
+
+  <!-- Button trigger modal -->
+
+  
+<button type="button" class="btn btn-primary mb-5" style="margin-left: 40px;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Add Candidate
+</button>
+
+<button type="button" class="btn btn-warning " style="margin-bottom: 48px;margin-left: 73rem;" routerLink="/login" routerLinkActive="active">Logoff</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Candidate name here </h5>  
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="Clear()"></button>
+      </div>
+      <div class="modal-body">
+        <input type="text" [(ngModel)]="CandidateName" name="fullname">
+      </div>
+      <div class="modal-footer">
+        <button type="button" (click)="addCandidateName()" [disabled]="CandidateName =='' " class="btn btn-success" data-bs-dismiss="modal">Add</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+  <div class="row">
+    
+
+                                  <!-- 1 -->
+             
+ <div class="col-lg-4" >
+    <h1 class="text-center">Candidate dose </h1>
+  <table class="table" style="color: white;">
+    <thead>
+      <tr>
+        <th style="font-size: larger;text-align: center;">Name </th>
+        <th style="font-size: larger;text-align: center;">Action</th>
+        
+      </tr>
+    </thead>
+    <tbody *ngFor="let item of CandidateData;let i = index">
+      <tr >
+        
+        <td  style="color: coral;font-size: large;padding-left: 80px;">{{item.CandidateName}}</td>
+        <td><button type="button" class="btn btn-light" style="position:relative; left:40px;" (click)="Dose1(i)">Dose 1 done</button></td>
+        <td><button type="button" class="btn btn-danger" style="position:relative; left:60px;" (click)="Delete1(i)">Delete</button></td> 
+      </tr>
+    </tbody>
+  </table> 
+
+
+ </div>
+
+
+                                           <!-- 2 -->
+  
+<div class="col-lg-4" >
+
+  <h1 class="text-center">Candidate dose 1</h1>
+  
+  <table class="table" style="color: white;">
+    <thead>
+      <tr>
+        <th style="font-size: larger;text-align: center;">Name </th>
+        <th style="font-size: larger;text-align: center;">Action</th>
+        
+      </tr>
+    </thead>
+    <tbody *ngFor="let item of CandidateData1;let i=index">
+      <tr>
+        <td style="color: coral;font-size: large;padding-left: 80px;">{{item.CandidateName}}</td>
+        <td><button type="button" class="btn btn-success" style="position:relative; left:40px;" (click)="Dose2(i)">Dose 2 done</button></td>
+        <td><button type="button" class="btn btn-warning" style="position:relative; left:60px;" (click)="Undo1(i)">Undo</button></td>
+
+        
+      </tr>
+    </tbody>
+  </table>
+
+
+</div>
+
+                                 <!-- 3 -->
+                         
+<div class="col-lg-4" > 
+
+  <h1 class="text-center">Candidate dose 2</h1>
+
+
+  <table class="table" style="color: white;">
+    <thead>
+      <tr>
+        <th style="font-size: larger;text-align: center;">Name </th>
+        <th style="font-size: larger;text-align: center;">Action</th>
+        
+      </tr>
+    </thead>
+    <tbody *ngFor="let item of CandidateData2;let i = index">
+      <tr>
+        <td style="color: coral;font-size: large;padding-left: 200px;">{{item.CandidateName}}</td>
+        <td><button type="button" class="btn btn-warning" style="position:relative; left:42px;" (click)="Undo2(i)">Undo</button></td>
+        
+      
+      </tr>
+    </tbody>
+  </table>
+
+
+  
+</div>
+
+
+</div>
+</div>
+
